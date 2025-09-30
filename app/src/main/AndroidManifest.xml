@@ -16,13 +16,8 @@
             android:name=".AlarmBroadcastReceiver"
             android:directBootAware="true"
             android:enabled="true"
-            android:exported="false">
+            android:exported="false"/>
 
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
 
         <service
             android:name=".AlarmService"

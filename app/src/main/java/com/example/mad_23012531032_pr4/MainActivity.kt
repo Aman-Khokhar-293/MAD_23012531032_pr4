@@ -9,6 +9,7 @@ import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.widget.TextClock
 import android.widget.TextView
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnCreateAlarm: MaterialButton
     lateinit var btnCancelAlarm: MaterialButton
     lateinit var textAlarmTime: TextView
-
+    val TAG = "MainActivity"
     private var calendar: Calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        cardListAlarm = findViewById<MaterialCardView>(R.id.card2)
+        cardListAlarm = findViewById(R.id.card2)
         btnCreateAlarm = findViewById<MaterialButton>(R.id.create_button)
         btnCancelAlarm = findViewById<MaterialButton>(R.id.cancel_button)
         textAlarmTime = findViewById<TextView>(R.id.alarmTime)
@@ -61,10 +62,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showTimerDialog (){
-        val mTimePicker: TimePickerDialog
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
-
+        val alarmCalendar = Calendar.getInstance()
+        val hour = alarmCalendar[Calendar.HOUR_OF_DAY]
+        val minute = alarmCalendar[Calendar.MINUTE]
+        Log.i(TAG, "showTimerDialog: hour=$hour minute=$minute")
         val picker = TimePickerDialog(
             this,
             {tp,sHour,sMinute-> sendDialogDataToActivity(sHour,sMinute)}
@@ -73,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         picker.show()
     }
 
-    @SuppressLint("SimpleDateFormat")
+
     private fun sendDialogDataToActivity(hour : Int, minute : Int){
         val alarmCalendar = Calendar.getInstance()
         val year: Int = alarmCalendar.get(Calendar.YEAR)
