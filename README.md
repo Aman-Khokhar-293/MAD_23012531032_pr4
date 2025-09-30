@@ -26,5 +26,11 @@ This application demonstrates how to schedule and handle alarms in Android using
 ---
 
 ## 🖼️ Screenshots  
+<img width="409" height="906" alt="image" src="https://github.com/user-attachments/assets/9924b1d9-09d5-44dc-a853-7956079efead" />
+<br>
+<img width="424" height="903" alt="image" src="https://github.com/user-attachments/assets/be5748eb-e7b7-48b6-90b9-920a686d2c68" />
+<br>
+<img width="415" height="899" alt="image" src="https://github.com/user-attachments/assets/0693115f-a3cb-49ce-971f-704c626c2f9a" />
+<br>
 
 
